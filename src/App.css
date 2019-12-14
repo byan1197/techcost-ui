@@ -1,5 +1,10 @@
 .App {
   text-align: center;
+  overflow-x: hidden !important;
+}
+
+.content-container {
+  height: 100vh;
 }
 
 .App-logo {
@@ -19,4 +24,29 @@
 
 .App-link {
   color: #09d3ac;
+}
+.card, .btn, .toast-border-rad {
+  border: none;
+  border-radius: 1rem !important;
+}
+
+.card, .navbar {
+  box-shadow: 0px 0px 20px 0px rgba(0,0,0,0.4);
+  background-color: rgb(251, 249, 246) !important;
+}
+
+input {
+  border-radius: 1rem !important;
+}
+
+.navbar {
+  position: sticky;
+}
+
+body {
+  font-family: 'Roboto', sans-serif !important;
+}
+
+h1, h2, h3, h4 {
+  font-weight: bold !important;
 }
