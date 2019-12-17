@@ -27,7 +27,6 @@ const Login = () => {
             username: username,
             password: password,
         }).then(res => {
-            setIsLoading(false);
             console.log('res.', res.data)
             if (res.status !== 201)
                 return false
@@ -39,14 +38,17 @@ const Login = () => {
             })
 
         if (!loginResult) {
+            setIsLoading(false)
             toast.error('Could not login.')
             return
         }
         if (!loginResult.token) {
+            setIsLoading(false)
             toast.error('Could not login.')
             return
         }
 
+        setIsLoading(false)
         localStorage.setItem('token', loginResult.token)
         changeAuthState({ type: 'CHANGE_AUTH_STATE', isAuth: true })
         toast.success('Successfully logged in')

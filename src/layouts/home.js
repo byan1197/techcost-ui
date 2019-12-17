@@ -31,10 +31,9 @@ const Home = () => {
     const handleSearch = async () => {
         setIsLoading(true)
         let finalResult = []
-        let body = { item_name: searchTerms }
-        let endpoint = '/scrape-result/one-time'
+        let endpoint = `/scrape-result/one-time/${searchTerms}/`
         if (scrapeTypes['CC']) {
-            let ccResults = await Axios.post(endpoint, { ...body, scrape_type: "CC" })
+            let ccResults = await Axios.get(endpoint + 'CC')
                 .then(res => res.data)
                 .then(res => res.map(cc => { return { ...cc, type: 'CC' } }))
                 .catch(e => {
@@ -45,8 +44,11 @@ const Home = () => {
         }
 
         if (scrapeTypes['NE']) {
-            let neResults = await Axios.post(endpoint, { ...body, scrape_type: "NE" })
-                .then(res => res.data)
+            let neResults = await Axios.get(endpoint + 'NE')
+                .then(res => {
+                    console.log('res.data', res.data)
+                    return res.data
+                })
                 .then(res => res.map(ne => { return { ...ne, type: 'NE' } }))
                 .catch(e => {
                     console.error(e)

@@ -83,7 +83,8 @@ const Dashboard = () => {
             maxWidth: '100vw',
             display: 'flex',
             justifyContent: 'center',
-            alignItems: 'center'
+            alignItems: 'center',
+            paddingTop: '3em'
         }}>
             <Card style={{ width: '80%', height: '80%' }}>
                 <Card.Header>

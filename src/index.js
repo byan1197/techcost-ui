@@ -6,7 +6,6 @@ import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { BrowserRouter } from "react-router-dom";
 import Axios from 'axios'
-
 Axios.defaults.baseURL='https://h0m13d4o9f.execute-api.us-east-1.amazonaws.com/dev'
 
 Axios.interceptors.request.use(function (config) {
